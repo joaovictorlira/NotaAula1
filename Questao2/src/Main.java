@@ -1,3 +1,5 @@
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Produto {
@@ -7,6 +9,11 @@ class Produto {
     String cor;
     double valor;
     int quantidadeEstoque;
+
+
+    public Produto() {
+
+    };
 
     // Construtor
     public Produto(String codigo, String nome, String tamanhoOuPeso, String cor, double valor, int quantidadeEstoque) {
@@ -38,9 +45,41 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Produto produto = new Produto("001", "Camiseta", "G", "Preta", 50.0, 5);
-        produto.exibirProduto();
+        ArrayList<Produto> listaProdutos = new ArrayList<>();
 
+        System.out.println("Cadastro de produto");
+
+
+        System.out.println("Digite o codigo");
+        String codigo = sc.nextLine();
+
+
+        System.out.println("Digite o nome");
+        String nome = sc.nextLine();
+
+        System.out.println("Digite o tamanho ou peso");
+        String tamanhoOuPeso = sc.nextLine();
+
+        System.out.println("Digite a cor");
+        String cor = sc.nextLine();
+
+        System.out.println("Digite o valor");
+        double valor = sc.nextDouble();
+
+        System.out.println("Digite a quantidade em estoque");
+        int quantidadeEstoque = sc.nextInt();
+        sc.nextLine();
+
+        Produto novoProduto = new Produto(codigo, nome, tamanhoOuPeso, cor, valor, quantidadeEstoque);
+        listaProdutos.add(novoProduto);
+
+        System.out.println("produto cadastrado com sucesso!");
+
+        novoProduto.exibirProduto();
+
+
+
+/*
         System.out.println("Quantas unidades deseja comprar?");
         int quantidadeVendida = sc.nextInt();
 
@@ -93,7 +132,7 @@ public class Main {
         produto.atualizarEstoque(quantidadeVendida);
         System.out.println("Venda realizada com sucesso!");
         System.out.println("Quantidades em estoque restantes "+ produto.quantidadeEstoque);
-
+*/
 
     }
 }
